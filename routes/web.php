@@ -27,7 +27,7 @@ Route::post('/posts', [PostController::class, 'store'])->name('posts.store')->mi
 Route::get('/{user:username}/posts/{post}', [PostController::class, 'show'])->name('posts.show')->middleware('auth');
 
 Route::post('/{user:username}/posts/{post}', [CommentController::class, 'store'])->name('comments.store')->middleware('auth');
-
+Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('posts.destroy')->middleware('auth');
 
 
 Route::post('/images', [ImageController::class, 'store'])->name('images.store');
