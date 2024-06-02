@@ -73,26 +73,9 @@
     <section class="container mx-auto my-10">
         <h2 class="text-4xl text-center font-black my-10">Publicaciones</h2>
 
-        @if ($posts->count())
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
-
-
-                @foreach ($posts as $post)
-                    <div>
-                        <a href="{{ route('posts.show', ['user' => $user->username, 'post' => $post]) }}">
-                            <img src="{{ asset('uploads') . '/' . $post->img }}" alt="img del post {{ $post->title }}">
-                        </a>
-                    </div>
-                @endforeach
-
-
-            </div>
-            <div class="flex justify-end my-10">
-                {{ $posts->links() }}
-            </div>
-        @else
-            <p class="text-gray-600 text-sm uppercase text-center font-bold">No hay posts</p>
-        @endif
+        <div>
+            <x-list-post :posts="$posts"/>
+        </div>
 
     </section>
 @endsection
