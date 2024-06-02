@@ -42,4 +42,5 @@ Route::post('/images', [ImageController::class, 'store'])->name('images.store');
 Route::post('/posts/{post}/likes', [LikeController::class, 'store'])->name('posts.likes.store');
 Route::delete('/posts/{post}/likes', [LikeController::class, 'destroy'])->name('posts.likes.destroy');
 
-Route::post('/{user:username}/follow', [FollowerController::class, 'index'])->name('users.follow');
+Route::post('/{user:username}/follow', [FollowerController::class, 'store'])->name('users.follow');
+Route::delete('/{user:username}/unfollow', [FollowerController::class, 'destroy'])->name('users.unfollow');
